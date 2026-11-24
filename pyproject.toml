@@ -1,8 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "labs"
+name = "bookcatalog"
 version = "0.1.0"
-description = "Add your description here"
+description = "A library book catalog with JSON storage"
+readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "pytest>=8.4.2",
-]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8.4.2"]
+
+[project.scripts]
+bookcatalog = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src", "src.*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
